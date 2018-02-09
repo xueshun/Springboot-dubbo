@@ -3,6 +3,7 @@ package com.xue.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.xue.aspect.ServiceLog;
 import com.xue.dao.RoncooUserDao;
 import com.xue.entity.RoncooUser;
 import com.xue.service.RoncooUserService;
@@ -20,16 +21,16 @@ public class RoncooUserServiceImpl implements RoncooUserService{
 
 	@Override
 	public int deleteById(int id) {
-		return 0;
+		return roncooUseDao.deleteById(id);
 	}
 
 	@Override
 	public int updateById(RoncooUser roncooUser) {
-		
-		return 0;
+		return roncooUseDao.updateById(roncooUser);
 	}
 
 	@Override
+	@ServiceLog
 	public RoncooUser selectById(int id) {
 		return roncooUseDao.selectById(id);
 	}
